@@ -1,0 +1,81 @@
+<button mat-raised-button matTooltip="Info about the action" aria-label="Button that displays a tooltip when focused or hovered over">Action</button>
+<hr />
+<button mat-raised-button title="Info about the action">simple title attribute</button>
+<hr />
+<ng-template #popContent>Hello, <b>{{name}}</b>!</ng-template>
+<ng-template #popTitle>Fancy <b>content!!</b></ng-template>
+<button type="button" class="btn btn-outline-secondary" [ngbPopover]="popContent" [popoverTitle]="popTitle">I've got markup and bindings in my popover!</button>
+
+<button type="button" class="btn btn-outline-secondary" ngbPopover="You see, I show up on hover!" triggers="mouseenter:mouseleave" popoverTitle="Pop title">Hover over me!</button>
+
+<hr />
+
+<div class="buttons">
+  <button type="button" class="btn btn-outline-secondary me-2" ngbPopover="What a great tip!" [autoClose]="false" triggers="manual" #p="ngbPopover" (click)="p.open()" popoverTitle="Pop title">Click me to open a popover</button>
+  <button type="button" class="btn btn-outline-secondary me-2" (click)="p.close()">Click me to close a popover</button>
+</div>
+
+<hr />
+
+<div class="container mt-3">
+  <h2>Click handler in NgZone</h2>
+  <button class="btn btn-primary" (click)="onClick()">Click me!</button>
+  <hr />
+
+  <h2>Click handler outside NgZone</h2>
+  <button #btn class="btn btn-primary">Click me!</button>
+  <hr />
+
+  <h2>Click handler outside NgZone</h2>
+  <button class="btn btn-primary" (click.zoneless)="onClick()">Click me!</button>
+
+  <hr />
+  <h2>3rd party lib initialized outside NgZone - tooltipdirective</h2>
+  <button appTooltip class="btn btn-danger">Hover me!</button>
+</div>
+
+<!-- <br />
+<hr />
+<h2>tippy1directive dynamic content not work for version ^6 but for ~2?</h2>
+<input
+  appTippy
+  [tippyOptions]="{
+  arrow: true,
+  createPopperInstanceOnInit: true,
+  placement: 'left'
+}"
+  class="search-input"
+  type="text"
+  title="foobar"
+/> -->
+
+<!-- <br />
+<hr />
+<h2>tippy2directive dynamic content: why is setProps not a function?</h2>
+
+<button appTippy2 [tooltip]="'Hello!'">Hover here</button>
+<button appTippy2 [tooltip]="'Hi!'" [tooltipOptions]="{placement: 'left'}">
+  Hover here
+</button> -->
+<br />
+<hr />
+
+<button id="button-target">My button (with popover)</button>
+
+<button (click)="toggleButtonPopover()">toggle popover</button>
+<!-- 
+<button data-template="one">One</button>
+<button data-template="two">Two</button>
+<button data-template="three">Three</button>
+
+<div style="display: none;">
+  <div id="one">
+    <strong>Content for `one`</strong>
+  </div>
+  <div id="two">
+    <strong>Content for `two`</strong>
+  </div>
+  <div id="three">
+    <strong>Content for `three`</strong>
+  </div>
+</div> -->
